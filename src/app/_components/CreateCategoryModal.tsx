@@ -22,7 +22,6 @@ const EVENT_CATEGORY_VALIDATOR = z.object({
     emoji: z.string().optional(),
 })
 
-
 type EVENT_CATEGORY_VALIDATOR = z.infer<typeof EVENT_CATEGORY_VALIDATOR>
 
 const COLOR_OPTIONS = [
@@ -51,44 +50,46 @@ const EMOJI_OPTIONS = [
     { emoji: "🔔", label: "Notification" },
 ]
 
-const CreateCategoryModal = ({ children }: PropsWithChildren) => {
+interface CreateEventCategoryProps extends PropsWithChildren {
+    containerClassName?: string
+}
+
+const CreateCategoryModal = ({ children, containerClassName }: CreateEventCategoryProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const queryClient = useQueryClient()
 
-    type EventCategoryForm = z.infer<typeof EVENT_CATEGORY_VALIDATOR>
-
-
     const { mutate: createEventCategory, isPending } = useMutation({
-        mutationFn: async (data: EventCategoryForm) => {
+        mutationFn: async (data: EVENT_CATEGORY_VALIDATOR) => {
             await client.category.createEventCategory.$post(data)
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["user-event-categories"] })
             setIsOpen(false)
+            reset()
         },
     })
-
 
     const {
         register,
         handleSubmit,
         watch,
         setValue,
+        reset,
         formState: { errors }
-    } = useForm<EventCategoryForm>({
+    } = useForm<EVENT_CATEGORY_VALIDATOR>({
         resolver: zodResolver(EVENT_CATEGORY_VALIDATOR),
     })
 
     const color = watch('color')
     const selectedEmoji = watch('emoji')
 
-    const onSubmit = (data: EventCategoryForm) => {
+    const onSubmit = (data: EVENT_CATEGORY_VALIDATOR) => {
         createEventCategory(data)
     }
 
     return (
         <>
-            <div onClick={() => setIsOpen(true)}>{children}</div>
+            <div className={containerClassName} onClick={() => setIsOpen(true)}>{children}</div>
 
             <Modal
                 className='p-8 max-w-xl'
@@ -120,8 +121,7 @@ const CreateCategoryModal = ({ children }: PropsWithChildren) => {
                                 <p className='text-red-500'>
                                     {errors.name.message}
                                 </p>
-                                :
-                                null}
+                                : null}
                         </div>
 
                         <div>

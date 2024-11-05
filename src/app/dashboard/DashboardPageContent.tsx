@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { useState } from 'react';
 import { Modal } from '../_components/Model';
+import { DashboardEmptyState } from './DashboardEmptyState';
 
 const DashboardPageContent = () => {
 
@@ -50,9 +51,7 @@ const DashboardPageContent = () => {
   }
 
   if (!categories || categories.length === 0) {
-    return <div className="flex items-center justify-center flex-1 h-full w-full">
-      <p>No categories found</p>
-    </div>
+    return <DashboardEmptyState />
   }
 
   return (

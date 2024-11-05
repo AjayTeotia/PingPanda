@@ -28,7 +28,7 @@ const Page = async () => {
     return (
         <DashboardPage
             cta={<CreateCategoryModal >
-                <Button>
+                 <Button className="w-full sm:w-fit">
                     <PlusIcon className='mr-2 size-4' />
                     Add Category
                 </Button>
