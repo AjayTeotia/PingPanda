@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { SignOutButton } from '@clerk/nextjs';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { ArrowRightIcon } from 'lucide-react';
+import { currentUser } from '@clerk/nextjs/server';
 
-const Navbar = () => {
-    const user = false
+const Navbar = async () => {
+    const user = await currentUser();
 
     return (
         <nav className="sticky top-0 z-[100] h-16 inset-x-0 w-full border-b border-gray-200 bg-white/80 backdrop-blur-lg transition-all">
