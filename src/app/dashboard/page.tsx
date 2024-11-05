@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 import DashboardPage from '../_components/DashboardPage';
 import DashboardPageContent from './DashboardPageContent';
+import CreateCategoryModal from '../_components/CreateCategoryModal';
+import { Button } from '@/components/ui/button';
+import { PlusIcon } from 'lucide-react';
 
 const Page = async () => {
     const auth = await currentUser();
@@ -23,8 +26,16 @@ const Page = async () => {
 
 
     return (
-        <DashboardPage title='Dashboard'>
-            <DashboardPageContent/>
+        <DashboardPage
+            cta={<CreateCategoryModal >
+                <Button>
+                    <PlusIcon className='mr-2 size-4' />
+                    Add Category
+                </Button>
+            </CreateCategoryModal>}
+            title='Dashboard'
+        >
+            <DashboardPageContent />
         </DashboardPage>
     )
 }
