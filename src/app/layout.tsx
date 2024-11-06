@@ -1,13 +1,12 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { Providers } from "./_components/providers"
-import { EB_Garamond } from "next/font/google"
 import { cn } from "@/utils"
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import type { Metadata } from "next"
+import { EB_Garamond, Inter } from "next/font/google"
+import { Providers } from "./_components/providers"
 
-import "./globals.css"
 import { ClerkProvider } from "@clerk/nextjs"
+import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const eb_garamond = EB_Garamond({
