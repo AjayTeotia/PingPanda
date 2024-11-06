@@ -1,16 +1,27 @@
 "use client"
 
-import { Event, EventCategory } from "@prisma/client"
-import { useQuery } from "@tanstack/react-query"
-import { EmptyCategoryState } from "./EmptyCategoryState"
-import { useEffect, useMemo, useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { Card } from "@/app/_components/Card"
 import { client } from "@/app/lib/client"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card } from "@/app/_components/Card"
-import { ArrowUpDown, BarChart } from "lucide-react"
+import { Event, EventCategory } from "@prisma/client"
+import { useQuery } from "@tanstack/react-query"
 import { isAfter, isToday, startOfMonth, startOfWeek } from "date-fns"
+import { ArrowUpDown, BarChart } from "lucide-react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useMemo, useState } from "react"
+import { EmptyCategoryState } from "./EmptyCategoryState"
 
+import Heading from "@/app/_components/Heading"
+import { Button } from "@/components/ui/button"
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+import { cn } from "@/utils"
 import {
     ColumnDef,
     ColumnFiltersState,
@@ -23,17 +34,6 @@ import {
     SortingState,
     useReactTable,
 } from "@tanstack/react-table"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/utils"
-import Heading from "@/app/_components/Heading"
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
 
 interface CategoryPageContentProps {
     hasEvent: boolean

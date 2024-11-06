@@ -1,13 +1,13 @@
-import DashboardPage from "../_components/DashboardPage"
-import { db } from "@/db"
-import { currentUser } from "@clerk/nextjs/server"
-import { redirect } from "next/navigation"
-import DashboardPageContent from "./DashboardPageContent"
-import CreateCategoryModal from "../_components/CreateCategoryModal"
 import { Button } from "@/components/ui/button"
-import { PlusIcon } from "lucide-react"
+import { db } from "@/db"
 import { createCheckoutSession } from "@/lib/sripe"
+import { currentUser } from "@clerk/nextjs/server"
+import { PlusIcon } from "lucide-react"
+import { redirect } from "next/navigation"
+import CreateCategoryModal from "../_components/CreateCategoryModal"
+import DashboardPage from "../_components/DashboardPage"
 import { PaymentSuccessModal } from "../_components/PaymentSuccessModal"
+import DashboardPageContent from "./DashboardPageContent"
 
 interface PageProps {
     searchParams: {

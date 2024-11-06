@@ -1,13 +1,12 @@
 "use client"
 
 import { buttonVariants } from "@/components/ui/button"
-import { Modal } from "../_components/Model"
 import { cn } from "@/utils"
 import { UserButton } from "@clerk/nextjs"
 import { Gem, Home, Key, LucideIcon, Menu, Settings, X } from "lucide-react"
 import Link from "next/link"
 import { PropsWithChildren, useState } from "react"
-import { Drawer } from "vaul"
+import { Modal } from "../_components/Model"
 
 interface SidebarItem {
     href: string

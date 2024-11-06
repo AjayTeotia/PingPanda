@@ -1,15 +1,14 @@
-import React from 'react'
-import MaxWidthWrapper from '@/app/_components/MaxWidthWrapper'
 import Heading from '@/app/_components/Heading'
-import { CheckIcon, Star, StarIcon } from "lucide-react"
+import MaxWidthWrapper from '@/app/_components/MaxWidthWrapper'
 import ShinyButton from '@/app/_components/ShinyButton'
-import MockDiscordUi from '../_components/MockDiscordUi'
 import { AnimatedList, AnimatedListItem } from '@/components/ui/animated-list'
-import DiscordMessage from '../_components/DiscordMessage'
+import { CheckIcon, Star } from "lucide-react"
 import Image from 'next/image'
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
+import DiscordMessage from '../_components/DiscordMessage'
 import { Icons } from '../_components/Icons'
+import MockDiscordUi from '../_components/MockDiscordUi'
 const Page = () => {
   const codeSnippet = `await fetch("http://localhost:3000/api/v1/events", {
     method: "POST",

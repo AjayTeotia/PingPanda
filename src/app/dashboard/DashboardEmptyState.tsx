@@ -1,8 +1,8 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { client } from "../lib/client";
-import { Card } from "../_components/Card";
 import { Button } from "@/components/ui/button";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Card } from "../_components/Card";
 import CreateCategoryModal from "../_components/CreateCategoryModal";
+import { client } from "../lib/client";
 
 export const DashboardEmptyState = () => {
     const queryClient = useQueryClient();

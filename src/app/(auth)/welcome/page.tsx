@@ -6,7 +6,7 @@ import { client } from '@/app/lib/client'
 import { useQuery } from '@tanstack/react-query'
 import { LucideProps } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 const Page = () => {
     const router = useRouter()
