@@ -1,19 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    // Enable Edge runtime for all API routes
-    runtime: "edge",
+    runtime: "edge", // Ensure Edge runtime for API routes
   },
   webpack(config, { isServer }) {
     if (!isServer) {
-      // Example of optimizing bundle size for Edge Functions in client-side bundles
+      // Enable code splitting for Edge functions to reduce function size
       config.optimization.splitChunks = {
-        chunks: "all", // Split large code into smaller chunks for Edge functions
+        chunks: "all", // Split large code into smaller chunks
       };
     }
     return config;
   },
   reactStrictMode: true, // Optional: Enables React Strict Mode (for development)
+  swcMinify: true, // Use SWC for faster minification (recommended for Next.js)
 };
 
 export default nextConfig;

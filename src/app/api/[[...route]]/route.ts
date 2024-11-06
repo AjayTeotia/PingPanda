@@ -1,5 +1,5 @@
-import { httpHandler } from "@/server"
+import { httpHandler as GET } from "@/server";
+export { GET };
 
-export const runtime = "edge"
-
-export { httpHandler as GET, httpHandler as POST }
+import { httpHandler as POST } from "@/server";
+export { POST };
