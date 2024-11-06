@@ -3,6 +3,8 @@ import { Inter } from "next/font/google"
 import { Providers } from "./_components/providers"
 import { EB_Garamond } from "next/font/google"
 import { cn } from "@/utils"
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import "./globals.css"
 import { ClerkProvider } from "@clerk/nextjs"
@@ -29,7 +31,10 @@ export default function RootLayout({
       <html lang="en" className={cn(inter.variable, eb_garamond.variable)}>
         <body className="min-h-[calc(100vh-1px)] flex flex-col font-sans bg-brand-50 text-brand-950 antialiased">
           <main className="relative flex-1 flex flex-col">
-            <Providers>{children}</Providers>
+            <Providers>{children}
+              <Analytics />
+              <SpeedInsights />
+            </Providers>
           </main>
         </body>
       </html>
