@@ -27,9 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={cn(inter.variable, eb_garamond.variable)}
-        <meta name="google-site-verification" content="PlyNTnRmeeRRrtj6v-qiBEeL-VTAutJNe9i-SDkvhRI" />
-      >
+      <html lang="en" className={cn(inter.variable, eb_garamond.variable)}>
         <body className="min-h-[calc(100vh-1px)] flex flex-col font-sans bg-brand-50 text-brand-950 antialiased">
           <main className="relative flex-1 flex flex-col">
             <Providers>{children}
