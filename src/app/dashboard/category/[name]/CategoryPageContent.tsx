@@ -120,24 +120,24 @@ export const CategoryPageContent = ({
                         (row.original.fields as Record<string, any>)[field] || "-",
                 }))
                 : []),
-            {
-                accessorKey: "deliveryStatus",
-                header: "Delivery Status",
-                cell: ({ row }) => (
-                    <span
-                        className={cn("px-2 py-1 rounded-full text-xs font-semibold", {
-                            "bg-green-100 text-green-800":
-                                row.getValue("deliveryStatus") === "DELIVERED",
-                            "bg-red-100 text-red-800":
-                                row.getValue("deliveryStatus") === "FAILED",
-                            "bg-yellow-100 text-yellow-800":
-                                row.getValue("deliveryStatus") === "PENDING",
-                        })}
-                    >
-                        {row.getValue("deliveryStatus")}
-                    </span>
-                ),
-            },
+            // {
+            //     accessorKey: "deliveryStatus",
+            //     header: "Delivery Status",
+            //     cell: ({ row }) => (
+            //         <span
+            //             className={cn("px-2 py-1 rounded-full text-xs font-semibold", {
+            //                 "bg-green-100 text-green-800":
+            //                     row.getValue("deliveryStatus") === "DELIVERED",
+            //                 "bg-red-100 text-red-800":
+            //                     row.getValue("deliveryStatus") === "FAILED",
+            //                 "bg-yellow-100 text-yellow-800":
+            //                     row.getValue("deliveryStatus") === "PENDING",
+            //             })}
+            //         >
+            //             {row.getValue("deliveryStatus")}
+            //         </span>
+            //     ),
+            // },
         ],
 
         [category.name, data?.events]
